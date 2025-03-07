@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Water Park</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap & Icon Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Additional Libraries -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Page Background */
+        .navbar-nav .nav-link:hover {
+        color: #007bff;
+        transform: scale(1.05);
+    }
+    .footer-item a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .footer-item a:hover {
+        color: white;
+        padding-left: 10px;
+    }
+
+    .footer-item a i {
+        transition: transform 0.3s ease;
+    }
+
+    .footer-item a:hover i {
+        transform: translateX(5px);
+    }
+
+
+        body {
+            background-image: url('./img/Free\ Vector\ _\ Memphis\ geometric\ background\ with\ abstract\ shapes.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Signup Box */
+        .signup-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 100px auto;
+        }
+
+        .btn-primary {
+            background-color: #0072ff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056d6;
+        }
+
+        .dob-section {
+            margin-bottom: 20px;
+        }
+
+        .dob-section select {
+            height: 40px;
+        }
+
+        .signup-container {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            max-width: 480px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .signup-container:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .signup-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-header p {
+            color: #65676b;
+            font-size: 0.9rem;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #606770;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            height: 46px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        .form-control:hover {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .gender-option {
+            border: 2px solid #dddfe2;
+            border-radius: 6px;
+            padding: 0.75rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gender-option:hover {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .gender-option.active {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.15);
+            transform: translateY(0);
+        }
+
+        .dob-select {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .form-select {
+            height: 46px;
+            border-radius: 6px;
+            border-color: #dddfe2;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:hover {
+            border-color: #80bdff;
+            cursor: pointer;
+            box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.1);
+        }
+
+        .terms-text {
+            font-size: 0.75rem;
+            color: #65676b;
+            line-height: 1.4;
+            margin: 1.5rem 0;
+        }
+
+        .terms-text a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .terms-text a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .terms-text a:hover {
+            color: #0056b3;
+        }
+
+        .terms-text a:hover::after {
+            width: 100%;
+        }
+
+        .btn-signup {
+            width: 100%;
+            height: 48px;
+            font-weight: 600;
+            font-size: 1rem;
+            background: #007bff;
+            border: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-signup:hover {
+            background: #0069d9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-signup:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-strength {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .password-match {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        /* Enhanced Navigation Hover Effect */
+        .navbar-nav .nav-link {
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: #007bff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown Hover Effect */
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .dropdown-item {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(0, 123, 255, 0.08);
+            padding-left: 1.8rem;
+        }
+
+        .dropdown-item:hover::before {
+            content: "";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #007bff;
+        }
+
+        /* Social Media Button Hover */
+        .btn-square {
+            transition: all 0.3s ease;
+        }
+
+        .btn-square:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+                <img src="./img/logo2.jpg" width="70px" height="70px" alt="Water Park Logo" class="me-2">
+                <h1 class="display-6 text-dark m-0" style="font-size: larger; font-weight: bolder;">Water Park</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="service.html" class="nav-item nav-link">Service</a>
+                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="feature.html" class="dropdown-item">Our Feature</a>
+                            <a href="gallery.html" class="dropdown-item">Our Gallery</a>
+                            <a href="attraction.html" class="dropdown-item">Attractions</a>
+                            <a href="package.html" class="dropdown-item">Ticket Packages</a>
+                            <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                            <a href="Support1.html" class="dropdown-item">Support Service</a>
+                            <a href="bookticket.html" class="dropdown-item">Book Ticket</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+            <div class="team-icon d-none d-xl-flex justify-content-center me-3">
+                <a class="btn btn-square btn-light rounded-circle mx-1"
+                    href="https://www.facebook.com/profile.php?id=61573713782903"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square btn-light rounded-circle mx-1"
+                    href="https://www.instagram.com/smile_land_waterpark/?utm_source=ig_web_button_share_sheet"><i
+                        class="fab fa-instagram"></i></a>
+                <a class="btn btn-square btn-light rounded-circle mx-1" href="https://www.linkedin.com/in/smileland-water-park-3031a8354/"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+            <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 flex-shrink-0">Sign In</a>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <div class="signup-container">
+        <div class="signup-header">
+            <h2>Create New Account</h2>
+            <p>Join our water park community to access exclusive offers and features</p>
+        </div>
+
+        <form id="signupForm" onsubmit="return registerUser(event)">
+            <div class="row g-3 mb-3">
+                <div class="col">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="firstName" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="surname" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" required>
+                <div class="password-strength" id="passwordStrength"></div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control" required>
+                <div class="password-match" id="passwordMatch"></div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Date of Birth</label>
+                <div class="dob-select">
+                    <select id="daySelect" class="form-select" required></select>
+                    <select id="monthSelect" class="form-select" required></select>
+                    <select id="yearSelect" class="form-select" required></select>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Gender</label>
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="gender-option" onclick="selectGender(this, 'female')">
+                            <div>Female</div>
+                            <input type="radio" name="gender" value="female" hidden required>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gender-option" onclick="selectGender(this, 'male')">
+                            <div>Male</div>
+                            <input type="radio" name="gender" value="male" hidden>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gender-option" onclick="selectGender(this, 'custom')">
+                            <div>Custom</div>
+                            <input type="radio" name="gender" value="custom" hidden>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms-text">
+                By creating an account, you agree to our 
+                <a href="termsandcondition.html" target="_blank">Terms of Service</a>, 
+                <a href="privacypolicy.html" target="_blank">Privacy Policy</a>, and 
+                <a href="Support1.html" target="_blank">Cookie Policy</a>. 
+                You may receive account-related communications.
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-signup">
+                Create Account
+            </button>
+        </form>
+    </div>
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4 mt-auto bg-dark text-light">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span>
+                        <a href="https://www.facebook.com/profile.php?id=61573713782903" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>
+                            Smileland Water Park</a>, All rights reserved.
+                    </span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-warning">
+                    Designed By : <a class="border-bottom text-white fw-bold" href="https://www.instagram.com/_ismail_sheikh_10/">M.Ismail</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Form Validation and DOB Scripts -->
+    <script>
+         // Enhanced JavaScript with real-time validation
+         document.addEventListener('DOMContentLoaded', function() {
+            populateDOBSelects();
+            initPasswordValidation();
+        });
+
+        function initPasswordValidation() {
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+
+            password.addEventListener('input', checkPasswordStrength);
+            confirmPassword.addEventListener('input', checkPasswordMatch);
+        }
+
+        function checkPasswordStrength() {
+            const strengthText = document.getElementById('passwordStrength');
+            const password = this.value;
+            let strength = 0;
+
+            if (password.length >= 8) strength++;
+            if (password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^A-Za-z0-9]/)) strength++;
+
+            const strengthMessages = ['Very Weak', 'Weak', 'Moderate', 'Strong', 'Very Strong'];
+            strengthText.style.display = 'block';
+            strengthText.textContent = `Strength: ${strengthMessages[strength]}`;
+            strengthText.style.color = ['#dc3545', '#ffc107', '#ffc107', '#28a745', '#28a745'][strength];
+        }
+
+        function checkPasswordMatch() {
+            const matchText = document.getElementById('passwordMatch');
+            const password = document.getElementById('password').value;
+            const confirm = this.value;
+
+            matchText.style.display = 'block';
+            if (password === confirm && password !== '') {
+                matchText.textContent = 'Passwords match';
+                matchText.style.color = '#28a745';
+            } else {
+                matchText.textContent = 'Passwords do not match';
+                matchText.style.color = '#dc3545';
+            }
+        }
+
+        function selectGender(element, gender) {
+            document.querySelectorAll('.gender-option').forEach(opt => {
+                opt.classList.remove('active');
+                opt.querySelector('input').checked = false;
+            });
+            element.classList.add('active');
+            element.querySelector('input').checked = true;
+        }
+
+        // Modified registration function with age verification
+        function registerUser(event) {
+            event.preventDefault();
+
+            // Existing validation checks
+            // Add age verification
+            const year = document.getElementById('yearSelect').value;
+            const currentYear = new Date().getFullYear();
+            if (currentYear - year < 13) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Age Restriction",
+                    text: "You must be at least 13 years old to create an account",
+                });
+                return false;
+            }
+
+            // Successful registration
+            Swal.fire({
+                icon: "success",
+                title: "Account Created!",
+                text: "Please check your email to verify your account",
+                timer: 2500,
+                showConfirmButton: false
+            }).then(() => {
+                window.location.href = "signup.html";
+            });
+
+            return false;
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            populateDOBSelects();
+        });
+
+        function populateDOBSelects() {
+            let daySelect = document.getElementById("daySelect");
+            let monthSelect = document.getElementById("monthSelect");
+            let yearSelect = document.getElementById("yearSelect");
+
+            for (let i = 1; i <= 31; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                daySelect.appendChild(option);
+            }
+
+            let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            months.forEach((month, index) => {
+                let option = document.createElement("option");
+                option.value = index + 1;
+                option.text = month;
+                monthSelect.appendChild(option);
+            });
+
+            let currentYear = new Date().getFullYear();
+            for (let i = currentYear - 100; i <= currentYear; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                yearSelect.appendChild(option);
+            }
+        }
+    </script>
+</body>
+</html>
